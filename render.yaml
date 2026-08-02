@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: mew-bot
+    env: python
+    plan: free
+    region: oregon
+    buildCommand: "pip install --upgrade pip && pip install -r requirements.txt"
+    startCommand: "python bot.py"
+    healthCheckPath: /
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.7
+      - key: BOT_TOKEN
+        sync: false
+      - key: ADMIN_ID
+        sync: false
